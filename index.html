@@ -5,245 +5,316 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Belbase Tours & Travels</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-/* GENERAL STYLES */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f4;
+/* RESET */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
+/* NAVIGATION */
 header {
-  background: #0066cc;
-  color: white;
-  padding: 20px;
-  text-align: center;
+  background:#0066cc;
+  color:white;
+  padding:15px 0;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
 }
 
-nav {
-  background: #333;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+header nav {
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
 }
 
-nav a {
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  font-size: 18px;
+header nav a {
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  padding:8px 12px;
+  transition:0.3s;
 }
 
-nav a:hover {
-  background: #555;
-  border-radius: 5px;
+header nav a:hover {
+  background:white;
+  color:#0066cc;
+  border-radius:5px;
 }
 
+/* HERO SECTION */
 .hero {
-  background: url("https://images.unsplash.com/photo-1549893074-4bc9a2f07a8c") center/cover no-repeat;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px #000;
+  background:url('https://images.unsplash.com/photo-1549893074-4bc9a2f07a8c') center/cover no-repeat;
+  height:500px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+  position:relative;
 }
 
+.hero::after {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero h1, .hero p {
+  position:relative;
+}
+
+.hero button {
+  margin-top:20px;
+  padding:12px 20px;
+  font-size:18px;
+  background:#ff9900;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.hero button:hover {
+  background:#e68a00;
+}
+
+/* CONTAINER */
 .container {
-  padding: 40px;
-  text-align: center;
+  padding:50px 20px;
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
 }
 
-/* CARDS */
+/* DESTINATIONS */
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
 }
 
 .card {
-  background: white;
-  width: 260px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px gray;
-  overflow: hidden;
+  width:260px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  overflow:hidden;
+  transition:0.3s;
+  cursor:pointer;
+  position:relative;
 }
 
 .card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  transition:0.3s;
+}
+
+.card:hover img {
+  transform:scale(1.05);
 }
 
 .card h3 {
-  margin: 10px 0 5px 0;
+  margin:10px;
 }
 
 .card p {
-  margin: 5px 10px;
+  margin:5px 10px 15px;
 }
 
-button {
-  background: #0066cc;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  margin: 15px;
-  cursor: pointer;
-  border-radius: 5px;
+.card button {
+  margin-bottom:15px;
 }
 
-button:hover {
-  background: #004a99;
+/* BOOKING MODAL */
+.modal {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
 }
 
-/* BOOKING FORM */
-#bookingSection {
-  display: none;
-  padding: 40px;
-  background: #f4f4f4;
-  text-align: center;
+.modal-content {
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  width:90%;
+  max-width:500px;
+  text-align:center;
+  position:relative;
 }
 
-#bookingForm input {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
+.modal-content input, .modal-content select, .modal-content textarea {
+  width:90%;
+  padding:10px;
+  margin:10px 0;
 }
 
-#bookingForm button {
-  width: 50%;
-}
-
-/* CONTACT SECTION */
-.contact {
-  background: #222;
-  color: white;
-  padding: 40px;
-  text-align: center;
-}
-
-.contact p {
-  margin: 8px 0;
-}
-
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
-
-section h2 {
-  margin-bottom: 30px;
+.close-btn {
+  position:absolute;
+  top:10px;
+  right:15px;
+  font-size:20px;
+  cursor:pointer;
+  font-weight:bold;
+  color:#333;
 }
 
 /* ABOUT US */
 .about {
-  background: #e2e2e2;
-  padding: 40px;
+  background:#e2e2e2;
+  padding:50px 20px;
+  text-align:center;
+}
+
+/* CONTACT */
+.contact {
+  background:#222;
+  color:white;
+  padding:50px 20px;
+  text-align:center;
+}
+
+.contact input, .contact textarea {
+  width:80%;
+  padding:10px;
+  margin:10px 0;
+}
+
+/* FOOTER */
+footer {
+  background:#111;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+/* MEDIA QUERIES */
+@media(max-width:768px){
+  .cards {
+    flex-direction:column;
+    align-items:center;
+  }
 }
 </style>
 </head>
 <body>
 
 <header>
-<h1>Belbase Tours & Travels</h1>
-<p>Explore the Beauty of Nepal</p>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#destinations">Destinations</a>
-<a href="#booking">Booking</a>
-<a href="#about">About Us</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<div id="home" class="hero">
-Discover Nepal
-</div>
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Belbase Tours & Travels</h1>
+  <p>Explore the Beauty of Nepal</p>
+  <button onclick="scrollToSection('destinations')">Explore Destinations</button>
+</section>
 
 <!-- DESTINATIONS -->
 <section id="destinations" class="container">
 <h2>Top Destinations in Nepal</h2>
 <div class="cards">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa" alt="Everest Base Camp">
-<h3>Everest Base Camp</h3>
-<p>12 Days Trek in Everest Region</p>
-<button onclick="showBookingForm('Everest Base Camp')">Book Now</button>
+<div class="card" onclick="openModal('Everest Base Camp')">
+  <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Everest Base Camp">
+  <h3>Everest Base Camp</h3>
+  <p>12 Days Trek</p>
+  <button>Book Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b" alt="Annapurna Base Camp">
-<h3>Annapurna Base Camp</h3>
-<p>10 Days Trek in Annapurna Region</p>
-<button onclick="showBookingForm('Annapurna Base Camp')">Book Now</button>
+<div class="card" onclick="openModal('Annapurna Base Camp')">
+  <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=800&q=80" alt="Annapurna Base Camp">
+  <h3>Annapurna Base Camp</h3>
+  <p>10 Days Trek</p>
+  <button>Book Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1583930579670-93579f7c4b65" alt="Pokhara">
-<h3>Pokhara</h3>
-<p>Lakeside City with Phewa Lake</p>
-<button onclick="showBookingForm('Pokhara')">Book Now</button>
+<div class="card" onclick="openModal('Pokhara')">
+  <img src="https://images.unsplash.com/photo-1583930579670-93579f7c4b65?auto=format&fit=crop&w=800&q=80" alt="Pokhara">
+  <h3>Pokhara</h3>
+  <p>Lakeside City</p>
+  <button>Book Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1587474260584-136574528ed5" alt="Chitwan National Park">
-<h3>Chitwan National Park</h3>
-<p>Wildlife Safari & Jungle Experience</p>
-<button onclick="showBookingForm('Chitwan National Park')">Book Now</button>
+<div class="card" onclick="openModal('Chitwan National Park')">
+  <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80" alt="Chitwan National Park">
+  <h3>Chitwan National Park</h3>
+  <p>Wildlife Safari</p>
+  <button>Book Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1593691509543-c55fb32b0c6c" alt="Lumbini">
-<h3>Lumbini</h3>
-<p>Birthplace of Lord Buddha</p>
-<button onclick="showBookingForm('Lumbini')">Book Now</button>
+<div class="card" onclick="openModal('Mustang')">
+  <img src="https://images.unsplash.com/photo-1578898886781-c558ab4f1124?auto=format&fit=crop&w=800&q=80" alt="Mustang">
+  <h3>Mustang</h3>
+  <p>Hidden Kingdom</p>
+  <button>Book Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1578898886781-c558ab4f1124" alt="Mustang">
-<h3>Mustang</h3>
-<p>Explore the Hidden Kingdom</p>
-<button onclick="showBookingForm('Mustang')">Book Now</button>
+<div class="card" onclick="openModal('Rara Lake')">
+  <img src="https://images.unsplash.com/photo-1603094459794-756512420a2a?auto=format&fit=crop&w=800&q=80" alt="Rara Lake">
+  <h3>Rara Lake</h3>
+  <p>Remote Himalayan Lake</p>
+  <button>Book Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1603094459794-756512420a2a" alt="Rara Lake">
-<h3>Rara Lake</h3>
-<p>Serene Lake in Remote Nepal</p>
-<button onclick="showBookingForm('Rara Lake')">Book Now</button>
+<div class="card" onclick="openModal('Tilicho Lake')">
+  <img src="https://images.unsplash.com/photo-1618059357215-3cbfc3de2d25?auto=format&fit=crop&w=800&q=80" alt="Tilicho Lake">
+  <h3>Tilicho Lake</h3>
+  <p>High Altitude Trek</p>
+  <button>Book Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1618059357215-3cbfc3de2d25" alt="Tilicho Lake">
-<h3>Tilicho Lake</h3>
-<p>High Altitude Himalayan Lake</p>
-<button onclick="showBookingForm('Tilicho Lake')">Book Now</button>
+<div class="card" onclick="openModal('Lumbini')">
+  <img src="https://images.unsplash.com/photo-1593691509543-c55fb32b0c6c?auto=format&fit=crop&w=800&q=80" alt="Lumbini">
+  <h3>Lumbini</h3>
+  <p>Birthplace of Lord Buddha</p>
+  <button>Book Now</button>
 </div>
 
 </div>
 </section>
 
-<!-- BOOKING FORM -->
-<section id="booking" class="container">
-<h2>Book Your Tour</h2>
-<div id="bookingSection">
-<form id="bookingForm">
-<input type="text" id="name" placeholder="Your Name" required><br>
-<input type="email" id="email" placeholder="Your Email" required><br>
-<input type="text" id="destination" placeholder="Destination" readonly><br>
-<input type="date" id="date" required><br>
-<button type="submit">Submit Booking</button>
-</form>
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Book Your Tour</h2>
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="text" id="destination" readonly>
+      <input type="date" id="date" required>
+      <button type="submit">Submit Booking</button>
+    </form>
+  </div>
 </div>
-</section>
 
 <!-- ABOUT US -->
 <section id="about" class="about">
@@ -264,18 +335,28 @@ Discover Nepal
 </footer>
 
 <script>
-function showBookingForm(destination) {
-  document.getElementById('bookingSection').style.display = 'block';
-  document.getElementById('destination').value = destination;
+// Smooth scroll
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
+// Modal booking
+function openModal(destination){
+  document.getElementById('bookingModal').style.display='flex';
+  document.getElementById('destination').value=destination;
+}
+
+function closeModal(){
+  document.getElementById('bookingModal').style.display='none';
+}
+
+document.getElementById('bookingForm').addEventListener('submit', function(e){
   e.preventDefault();
-  alert("Thank you " + document.getElementById('name').value + "! Your booking for " + document.getElementById('destination').value + " has been received. We will contact you shortly.");
+  alert("Thank you "+document.getElementById('name').value+"! Your booking for "+document.getElementById('destination').value+" has been received. We will contact you shortly.");
   document.getElementById('bookingForm').reset();
-  document.getElementById('bookingSection').style.display = 'none';
+  closeModal();
 });
 </script>
 
 </body>
-</html>
+  </html>
