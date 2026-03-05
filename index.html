@@ -199,3 +199,100 @@ Discover Nepal
 
 </body>
   </html>
+<!-- Destinations Section -->
+<section class="container">
+  <h2>Popular Nepal Destinations</h2>
+
+  <div class="cards">
+
+    <!-- Everest Base Camp -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa" alt="Everest Base Camp">
+      <h3>Everest Base Camp Trek</h3>
+      <p>12 Days Trek in the Everest Region</p>
+      <p class="price">Price: $1500</p>
+      <button onclick="showBookingForm('Everest Base Camp Trek', 1500)">Book Now</button>
+    </div>
+
+    <!-- Annapurna Base Camp -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b" alt="Annapurna Base Camp">
+      <h3>Annapurna Base Camp</h3>
+      <p>10 Days Trek in Annapurna Region</p>
+      <p class="price">Price: $1200</p>
+      <button onclick="showBookingForm('Annapurna Base Camp', 1200)">Book Now</button>
+    </div>
+
+    <!-- Pokhara -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1583930579670-93579f7c4b65" alt="Pokhara">
+      <h3>Pokhara Tour</h3>
+      <p>3 Days Tour to Lakeside Pokhara</p>
+      <p class="price">Price: $300</p>
+      <button onclick="showBookingForm('Pokhara Tour', 300)">Book Now</button>
+    </div>
+
+    <!-- Chitwan -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5" alt="Chitwan Jungle Safari">
+      <h3>Chitwan Jungle Safari</h3>
+      <p>Wildlife Tour in Chitwan National Park</p>
+      <p class="price">Price: $250</p>
+      <button onclick="showBookingForm('Chitwan Safari', 250)">Book Now</button>
+    </div>
+
+    <!-- Lumbini -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1593691509543-c55fb32b0c6c" alt="Lumbini">
+      <h3>Lumbini Tour</h3>
+      <p>Visit Birthplace of Lord Buddha</p>
+      <p class="price">Price: $200</p>
+      <button onclick="showBookingForm('Lumbini Tour', 200)">Book Now</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Booking Form (Initially Hidden) -->
+<section id="bookingSection" style="display:none; padding:40px; text-align:center; background:#f4f4f4;">
+  <h2>Book Your Tour</h2>
+  <form id="bookingForm">
+    <input type="text" id="name" placeholder="Your Name" required><br><br>
+    <input type="email" id="email" placeholder="Your Email" required><br><br>
+    <input type="text" id="destination" readonly><br><br>
+    <input type="text" id="price" readonly><br><br>
+    <input type="date" id="date" required><br><br>
+    <button type="submit">Submit Booking</button>
+  </form>
+</section>
+
+<!-- Contact Section -->
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p><b>Belbase Tours & Travel</b></p>
+  <p>📞 Phone: 9744238696</p>
+  <p>📧 Email: khatrimanish1298@gmail.com</p>
+  <p>📍 Location: Nepal</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Belbase Tours & Travel | All Rights Reserved</p>
+</footer>
+
+<!-- Script to Show Booking Form -->
+<script>
+function showBookingForm(destination, price) {
+  document.getElementById('bookingSection').style.display = 'block';
+  document.getElementById('destination').value = destination;
+  document.getElementById('price').value = "$" + price;
+}
+
+// Handle form submission
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert("Thank you " + document.getElementById('name').value + "! Your booking for " + document.getElementById('destination').value + " has been received. We will contact you shortly.");
+  document.getElementById('bookingForm').reset();
+  document.getElementById('bookingSection').style.display = 'none';
+});
+</script>
