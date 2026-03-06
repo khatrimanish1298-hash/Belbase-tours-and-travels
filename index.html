@@ -1,362 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Belbase Tours & Travels</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-/* RESET */
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Roboto', sans-serif;
-}
-
-/* NAVIGATION */
-header {
-  background:#0066cc;
-  color:white;
-  padding:15px 0;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 2px 6px rgba(0,0,0,0.2);
-}
-
-header nav {
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  flex-wrap:wrap;
-}
-
-header nav a {
-  color:white;
-  text-decoration:none;
-  font-weight:500;
-  padding:8px 12px;
-  transition:0.3s;
-}
-
-header nav a:hover {
-  background:white;
-  color:#0066cc;
-  border-radius:5px;
-}
-
-/* HERO SECTION */
-.hero {
-  background:url('https://images.unsplash.com/photo-1549893074-4bc9a2f07a8c') center/cover no-repeat;
-  height:500px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  text-align:center;
-  position:relative;
-}
-
-.hero::after {
-  content:'';
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.5);
-}
-
-.hero h1, .hero p {
-  position:relative;
-}
-
-.hero button {
-  margin-top:20px;
-  padding:12px 20px;
-  font-size:18px;
-  background:#ff9900;
-  color:white;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-  font-weight:bold;
-  transition:0.3s;
-}
-
-.hero button:hover {
-  background:#e68a00;
-}
-
-/* CONTAINER */
-.container {
-  padding:50px 20px;
-  max-width:1200px;
-  margin:auto;
-  text-align:center;
-}
-
-/* DESTINATIONS */
-.cards {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:25px;
-}
-
-.card {
-  width:260px;
-  background:white;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  overflow:hidden;
-  transition:0.3s;
-  cursor:pointer;
-  position:relative;
-}
-
-.card img {
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  transition:0.3s;
-}
-
-.card:hover img {
-  transform:scale(1.05);
-}
-
-.card h3 {
-  margin:10px;
-}
-
-.card p {
-  margin:5px 10px 15px;
-}
-
-.card button {
-  margin-bottom:15px;
-}
-
-/* BOOKING MODAL */
-.modal {
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
-}
-
-.modal-content {
-  background:white;
-  padding:30px;
-  border-radius:10px;
-  width:90%;
-  max-width:500px;
-  text-align:center;
-  position:relative;
-}
-
-.modal-content input, .modal-content select, .modal-content textarea {
-  width:90%;
-  padding:10px;
-  margin:10px 0;
-}
-
-.close-btn {
-  position:absolute;
-  top:10px;
-  right:15px;
-  font-size:20px;
-  cursor:pointer;
-  font-weight:bold;
-  color:#333;
-}
-
-/* ABOUT US */
-.about {
-  background:#e2e2e2;
-  padding:50px 20px;
-  text-align:center;
-}
-
-/* CONTACT */
-.contact {
-  background:#222;
-  color:white;
-  padding:50px 20px;
-  text-align:center;
-}
-
-.contact input, .contact textarea {
-  width:80%;
-  padding:10px;
-  margin:10px 0;
-}
-
-/* FOOTER */
-footer {
-  background:#111;
-  color:white;
-  padding:20px;
-  text-align:center;
-}
-
-/* MEDIA QUERIES */
-@media(max-width:768px){
-  .cards {
-    flex-direction:column;
-    align-items:center;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belbase Travel | Explore Nepal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#destinations">Destinations</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <header>
+        <nav>
+            <div class="logo">Belbase<span>Travel</span></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <h1>Belbase Tours & Travels</h1>
-  <p>Explore the Beauty of Nepal</p>
-  <button onclick="scrollToSection('destinations')">Explore Destinations</button>
-</section>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover the Heart of the Himalayas</h1>
+            <p>Unforgettable journeys to Everest, Mustang, and beyond.</p>
+            <a href="https://wa.me/9744238696" class="btn">Chat on WhatsApp</a>
+        </div>
+    </section>
 
-<!-- DESTINATIONS -->
-<section id="destinations" class="container">
-<h2>Top Destinations in Nepal</h2>
-<div class="cards">
+    <section id="destinations">
+        <h2 class="section-title">Our Top Destinations</h2>
+        <div class="container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=500" alt="Everest">
+                <h3>Everest Base Camp</h3>
+                <p>The ultimate trek to the foot of the world's highest peak.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1623492701902-47dc207df5dc?auto=format&fit=crop&w=500" alt="Lumbini">
+                <h3>Lumbini</h3>
+                <p>Spiritual journey to the sacred birthplace of Lord Buddha.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1582650843050-488661794770?auto=format&fit=crop&w=500" alt="ABC">
+                <h3>Annapurna Base Camp</h3>
+                <p>Stunning 360-degree views of the Annapurna massif.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=500" alt="Pokhara">
+                <h3>Pokhara</h3>
+                <p>The city of lakes and gateway to the Himalayas.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1618309170243-097566f7d498?auto=format&fit=crop&w=500" alt="Langtang">
+                <h3>Langtang Valley</h3>
+                <p>Beautiful glacial valleys and rich Tamang culture.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541410945376-a7872f503e2c?auto=format&fit=crop&w=500" alt="Rara">
+                <h3>Rara Lake</h3>
+                <p>The deepest and most pristine lake in western Nepal.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=500" alt="Tilicho">
+                <h3>Tilicho Lake</h3>
+                <p>One of the highest lakes in the world at 4,919m.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=500" alt="Mustang">
+                <h3>Mustang</h3>
+                <p>The "Forbidden Kingdom" with desert-like landscapes.</p>
+            </div>
+        </div>
+    </section>
 
-<div class="card" onclick="openModal('Everest Base Camp')">
-  <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Everest Base Camp">
-  <h3>Everest Base Camp</h3>
-  <p>12 Days Trek</p>
-  <button>Book Now</button>
-</div>
+    <section id="contact">
+        <div class="contact-box">
+            <h2>Contact Us</h2>
+            <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/9744238696">9744238696</a></p>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:belbase@travel.com">belbase@travel.com</a></p>
+        </div>
+    </section>
 
-<div class="card" onclick="openModal('Annapurna Base Camp')">
-  <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=800&q=80" alt="Annapurna Base Camp">
-  <h3>Annapurna Base Camp</h3>
-  <p>10 Days Trek</p>
-  <button>Book Now</button>
-</div>
-
-<div class="card" onclick="openModal('Pokhara')">
-  <img src="https://images.unsplash.com/photo-1583930579670-93579f7c4b65?auto=format&fit=crop&w=800&q=80" alt="Pokhara">
-  <h3>Pokhara</h3>
-  <p>Lakeside City</p>
-  <button>Book Now</button>
-</div>
-
-<div class="card" onclick="openModal('Chitwan National Park')">
-  <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80" alt="Chitwan National Park">
-  <h3>Chitwan National Park</h3>
-  <p>Wildlife Safari</p>
-  <button>Book Now</button>
-</div>
-
-<div class="card" onclick="openModal('Mustang')">
-  <img src="https://images.unsplash.com/photo-1578898886781-c558ab4f1124?auto=format&fit=crop&w=800&q=80" alt="Mustang">
-  <h3>Mustang</h3>
-  <p>Hidden Kingdom</p>
-  <button>Book Now</button>
-</div>
-
-<div class="card" onclick="openModal('Rara Lake')">
-  <img src="https://images.unsplash.com/photo-1603094459794-756512420a2a?auto=format&fit=crop&w=800&q=80" alt="Rara Lake">
-  <h3>Rara Lake</h3>
-  <p>Remote Himalayan Lake</p>
-  <button>Book Now</button>
-</div>
-
-<div class="card" onclick="openModal('Tilicho Lake')">
-  <img src="https://images.unsplash.com/photo-1618059357215-3cbfc3de2d25?auto=format&fit=crop&w=800&q=80" alt="Tilicho Lake">
-  <h3>Tilicho Lake</h3>
-  <p>High Altitude Trek</p>
-  <button>Book Now</button>
-</div>
-
-<div class="card" onclick="openModal('Lumbini')">
-  <img src="https://images.unsplash.com/photo-1593691509543-c55fb32b0c6c?auto=format&fit=crop&w=800&q=80" alt="Lumbini">
-  <h3>Lumbini</h3>
-  <p>Birthplace of Lord Buddha</p>
-  <button>Book Now</button>
-</div>
-
-</div>
-</section>
-
-<!-- BOOKING MODAL -->
-<div class="modal" id="bookingModal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2>Book Your Tour</h2>
-    <form id="bookingForm">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <input type="text" id="destination" readonly>
-      <input type="date" id="date" required>
-      <button type="submit">Submit Booking</button>
-    </form>
-  </div>
-</div>
-
-<!-- ABOUT US -->
-<section id="about" class="about">
-<h2>About Us</h2>
-<p>Belbase Tours & Travels is a trusted travel agency based in Nepal, specializing in treks, tours, and adventure experiences across the Himalayas. Our mission is to provide unforgettable journeys with safety, comfort, and local expertise.</p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-<h2>Contact Us</h2>
-<p>📞 Phone: 9744238696</p>
-<p>📧 Email: belbase@company.com</p>
-<p>📍 Location: Nepal</p>
-</section>
-
-<footer>
-<p>© 2026 Belbase Tours & Travels | All Rights Reserved</p>
-</footer>
-
-<script>
-// Smooth scroll
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-// Modal booking
-function openModal(destination){
-  document.getElementById('bookingModal').style.display='flex';
-  document.getElementById('destination').value=destination;
-}
-
-function closeModal(){
-  document.getElementById('bookingModal').style.display='none';
-}
-
-document.getElementById('bookingForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  alert("Thank you "+document.getElementById('name').value+"! Your booking for "+document.getElementById('destination').value+" has been received. We will contact you shortly.");
-  document.getElementById('bookingForm').reset();
-  closeModal();
-});
-</script>
+    <footer>
+        <p>&copy; 2026 Belbase Travel Agency. All rights reserved.</p>
+    </footer>
 
 </body>
-  </html>
+</html>
